@@ -17,11 +17,11 @@ const MovieList = () => {
 
   return (
     <div>
-      <h1>Trending movies</h1>
+      <h1 className={css.title}>Trending movies</h1>
       <ul>
         {Array.isArray(movies) &&
           movies.map((movie) => (
-            <li key={movie.id}>
+            <li className={css.item} key={movie.id}>
               <Link to={`/movies/${movie.id}`} className={css.link}>
                 {movie.title}
               </Link>

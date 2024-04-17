@@ -1,5 +1,16 @@
 .link {
-  color: rgb(144, 63, 202);
+  color: rgb(238, 232, 242);
   text-decoration: none;
   font-size: 20px;
+  margin: 0;
+}
+
+.title {
+  color: rgb(238, 232, 242);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.item {
+  margin-bottom: 5px;
 }

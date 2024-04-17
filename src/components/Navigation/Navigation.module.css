@@ -1,7 +1,7 @@
 .nav {
   display: flex;
   gap: 20px;
-  background-color: rgb(124, 140, 116);
+  background-color: rgba(7, 195, 67, 0.802);
   padding: 20px;
   box-shadow: 0 0 20px rgb(75, 74, 71);
 }
@@ -9,10 +9,10 @@
 .link {
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .active,
 .link:hover {
-  color: rgb(194, 217, 230);
+  color: rgb(64, 45, 6);
 }

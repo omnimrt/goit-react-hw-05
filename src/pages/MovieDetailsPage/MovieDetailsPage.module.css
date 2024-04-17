@@ -23,12 +23,13 @@
 }
 
 .button {
-  padding: 10px 16px;
+  padding: 15px 35px;
+  font-size: 20px;
   border-radius: 5px;
-  background-color: rgb(205, 185, 220);
+  background-color: transparent;
   color: white;
-  font-size: 15px;
-  border: none;
-  margin-bottom: 10px;
+  border: 3px solid rgb(15, 70, 15);
+  box-shadow: 5px 2px 2px rgb(15, 70, 15);
   cursor: pointer;
+  margin: 20px;
 }

@@ -50,7 +50,9 @@ const MoviesPage = () => {
           value={value}
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button className={css.button} type="submit">
+          Search
+        </button>
       </form>
       {movies && (
         <ul>
