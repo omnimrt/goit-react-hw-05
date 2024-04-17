@@ -104,9 +104,8 @@ export const fetchMovieByQuery = async (query) => {
   };
 
   try {
-    const response = await axios.request(options);
-    console.log(response.data.results);
-    return response.data.results;
+    const { data } = await axios.request(options);
+    return data;
   } catch (error) {
     console.error(error);
     return null;

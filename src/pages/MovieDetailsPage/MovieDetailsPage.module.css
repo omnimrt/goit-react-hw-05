@@ -21,3 +21,14 @@
 .link {
   color: rgb(144, 63, 202);
 }
+
+.button {
+  padding: 10px 16px;
+  border-radius: 5px;
+  background-color: rgb(205, 185, 220);
+  color: white;
+  font-size: 15px;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}

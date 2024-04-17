@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchMovieByQuery } from "../../services/api";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
@@ -28,9 +28,10 @@ const MoviesPage = () => {
     const fetchMovies = async () => {
       try {
         const response = await fetchMovieByQuery(queryParams);
+        console.log("API response:", response);
         setMovies(response.results);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching movies:", error);
       }
     };
 
@@ -54,7 +55,9 @@ const MoviesPage = () => {
       {movies && (
         <ul>
           {movies.map((movie) => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id}>
+              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            </li>
           ))}
         </ul>
       )}

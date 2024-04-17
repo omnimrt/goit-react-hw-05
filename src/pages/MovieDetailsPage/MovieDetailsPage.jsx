@@ -1,16 +1,19 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchMoviesById } from "../../services/api";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, useLocation } from "react-router-dom";
 import MovieCast from "../../components/MovieCast/MovieCast";
 import MovieReviews from "../../components/MovieReviews/MovieReviews";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
+  const location = useLocation();
   const { movieId } = useParams();
   const [movieData, setMovieData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { from } = location.state || { from: { pathname: "/" } };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +49,9 @@ const MovieDetailsPage = () => {
       <div>
         <div className={css.container}>
           <div>
+            <Link to={from}>
+              <button className={css.button}>Go back</button>
+            </Link>
             <img
               style={{ width: "300px" }}
               src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path} alt={movieData.title}`}
