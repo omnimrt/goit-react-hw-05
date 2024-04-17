@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  padding: 20px;
+  margin-top: 35px;
+}
+
+.genresList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.info {
+  margin-left: 20px;
+}
+
+.additional {
+  padding: 20px;
+}
+
+.link {
+  color: rgb(144, 63, 202);
+}
