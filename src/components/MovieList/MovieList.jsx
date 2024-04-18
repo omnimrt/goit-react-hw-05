@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
-import { fetchMovies } from "../../services/api";
-import { Link } from "react-router-dom";
+// src/components/MovieList/MovieList.jsx
+import { Link, useLocation } from "react-router-dom";
 import css from "./MovieList.module.css";
 
-const MovieList = () => {
-  const [movies, setMovies] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { results } = await fetchMovies();
-      setMovies(results);
-    };
-
-    fetchData();
-  }, []);
-
+const MovieList = ({ movies }) => {
+  const location = useLocation();
   return (
     <div>
       <h1 className={css.title}>Trending movies</h1>
@@ -22,7 +11,11 @@ const MovieList = () => {
         {Array.isArray(movies) &&
           movies.map((movie) => (
             <li className={css.item} key={movie.id}>
-              <Link to={`/movies/${movie.id}`} className={css.link}>
+              <Link
+                state={location}
+                to={`/movies/${movie.id}`}
+                className={css.link}
+              >
                 {movie.title}
               </Link>
             </li>

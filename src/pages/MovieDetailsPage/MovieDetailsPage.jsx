@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchMoviesById } from "../../services/api";
 import { Link, Routes, Route, useLocation } from "react-router-dom";
 import MovieCast from "../../components/MovieCast/MovieCast";
@@ -7,13 +7,14 @@ import MovieReviews from "../../components/MovieReviews/MovieReviews";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
-  const location = useLocation();
   const { movieId } = useParams();
   const [movieData, setMovieData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { from } = location.state || { from: { pathname: "/" } };
+  const location = useLocation();
+  const backLinkRef = useRef(location.state ?? "/");
+  console.log(backLinkRef.current);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,13 +44,12 @@ const MovieDetailsPage = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  // Render movie details only when movieData is available
   return (
     movieData !== null && (
       <div>
         <div className={css.container}>
           <div>
-            <Link to={from}>
+            <Link to={backLinkRef.current}>
               <button className={css.button}>Go back</button>
             </Link>
             <img
